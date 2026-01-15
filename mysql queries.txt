@@ -1,0 +1,41 @@
+USE school
+CREATE TABLE studentData
+(
+    id int,
+    studentname varchar(20),
+    coursename varchar(25),
+    batchcode varchar(10),
+    phonenumber int,
+    fee int,
+    branch varchar(20)
+)
+
+
+INSERT INTO studentdata
+(id, studentname, coursename, batchcode, phonenumber, fee, branch)
+VALUES (105, 'Faizan', 'DISM', '2024-06E',12356987, 8000, 'FB Area'),
+(106, 'Ayan', 'CPISM', '2024-05F',15356912, 7000, 'Gulshan-e-Iqbal')
+
+SELECT * FROM `studentdata` WHERE coursename = 'CPISM'
+
+
+SELECT * FROM `studentdata` WHERE fee > 7500
+
+
+UPDATE studentdata
+SET batchcode = '2026-04F'
+WHERE id = 103
+
+
+DELETE FROM studentdata WHERE id = 105
+
+
+CREATE TABLE newData (
+id int,
+name varchar(20),
+email varchar(20)
+)
+
+
+
+DROP TABLE newdata	
