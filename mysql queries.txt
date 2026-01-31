@@ -38,4 +38,94 @@ email varchar(20)
 
 
 
-DROP TABLE newdata	
+DROP TABLE newdata
+
+
+CREATE TABLE signup (
+id int PRIMARY KEY AUTO_INCREMENT NOT null,
+fullname varchar(20) not null,
+surname varchar(20) not null,
+date varchar(15) not null,
+gender varchar(15),
+email varchar(25) not null UNIQUE,
+phonenumber varchar(15) UNIQUE,
+PASSWORD varchar(20)
+)
+
+
+ALTER TABLE signup
+ADD COLUMN create_at datetime
+DEFAULT CURRENT_TIMESTAMP
+
+
+CREATE TABLE administrator (
+admin_id int PRIMARY KEY AUTO_INCREMENT,
+admin_username varchar(15) not null,
+admin_email varchar(20) not null UNIQUE,
+admin_PASSWORD varchar(15) not null,
+created_at datetime DEFAULT CURRENT_TIMESTAMP
+)
+
+
+INSERT INTO administrator
+(admin_username, admin_email, admin_PASSWORD)
+VALUES ('Admin', 'admin@gmail.com', SHA2('admin@123', 256))
+
+
+
+===================================
+
+CREATE TABLE users (
+user_id int PRIMARY KEY AUTO_INCREMENT,
+full_name varchar(25) not null,
+user_email varchar(25) not null UNIQUE,
+user_phone varchar(15) not null,
+user_password varchar(20) not null,
+CHECK(CHAR_LENGTH(user_password) <= 10),
+create_at datetime DEFAULT CURRENT_TIMESTAMP
+)
+
+c
+
+
+
+=================
+CREATE TABLE orders (
+order_id int PRIMARY KEY AUTO_INCREMENT,
+user_id int not null,
+order_date datetime DEFAULT CURRENT_TIMESTAMP,
+total_amount decimal(10,2) not null,
+status varchar(25) DEFAULT 'pending',
+    
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+)
+
+
+INSERT INTO orders 
+(user_id, total_amount)
+VALUES (8, 5000),
+(3, 3000),
+(2, 5000),
+(1, 4000),
+(5, 6000),
+(4, 7000),
+(6, 2500),
+(7, 5500)
+
+
+
+==============================
+
+INSERT INTO orders 
+(user_id,, product_name total_amount)
+VALUES (8, "GUL Panther Unstitched Fabric Blended-LF", 5000),
+(3, "Echo Unstitched Fabric Blended", 3000),
+(2, "Escada Unstitched Fabric Cotton with Gift Box", 5000),
+(1, "Regular Fit Embroidered Suits SK-EMB25-012", 4000),
+(5, "Regular Fit Styling Suits SK-BSC25-041", 6000),
+(4, "Gray Peshawari IPS-PSH25-011", 7000),
+(6, "Power Marine Gift Set For Men", 2500),
+(7, "Air Perfume For Men", 5500)
+
+
+
