@@ -128,4 +128,17 @@ VALUES (8, "GUL Panther Unstitched Fabric Blended-LF", 5000),
 (7, "Air Perfume For Men", 5500)
 
 
+===================
+
+CREATE TABLE delivery(
+delivery_id int PRIMARY KEY AUTO_INCREMENT,
+order_id int not null,
+delivery_add varchar(100),
+delivery_status varchar(30) DEFAULT 'pending',
+deliverydate datetime null,
+create_at datetime DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (order_id) REFERENCES orders(order_id)
+)
+
+
 
