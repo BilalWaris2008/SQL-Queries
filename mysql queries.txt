@@ -140,5 +140,50 @@ create_at datetime DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (order_id) REFERENCES orders(order_id)
 )
 
+INSERT INTO delivery
+(orderid, delivery_add, delivery_status, deliverydate)
+VALUES (1, 'Gulshan Block-2', 'Return', '2026-02-06'),
+(1, 'Gulshan Block-2', 'Delivered', '2026-02-06'),
+(1, 'Gulshan Block-2', 'Delivered', '2026-02-06'),
+(1, 'Gulshan Block-2', 'Delivered', '2026-02-06')
 
 
+ALTER TABLE delivery
+ADD UNIQUE (orderid)
+
+INSERT INTO delivery
+(orderid, delivery_add, delivery_status, deliverydate)
+VALUES (5, 'Gulshan Block-2', 'Delivered', '2026-02-06'),
+(2, 'Gulshan Block-3', 'Delivered', '2026-02-06'),
+(3, 'Gulshan Block-4', 'Return', '2026-02-06'),
+(4, 'Gulshan Block-6', 'Delivered', '2026-02-06')
+
+
+
+
+
+
+
+
+
+
+
+================================
+CSS Animation
+
+
+.skills h1{
+    font-size: 120px;
+    font-weight: 900;
+    background: url(./assets/slide\ 3-jpg\ -\ Copy.jpg);
+    background-position: center;
+    
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: movebg  5s  linear  infinite;
+}
+@keyframes movebg{
+    from{background-position: 0%   50%;}
+    to{background-position: 100%   50%;}
+    
+}
